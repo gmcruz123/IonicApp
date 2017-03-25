@@ -13,11 +13,9 @@
     <ion-col *ngFor="let r of restaurante" col-12 col-md-6 col-lg-4>
       <ion-card >
         <img style="width: 100%; height: 240px;" src="{{r.imagen}}">
-        <ion-card-content>
-          <ion-card-title>{{r.nombre}}</ion-card-title>
-       <!--   <p> <ion-icon name="md-people" margin-right></ion-icon> {{h.porcion}} </p>
-          <p> <ion-icon name="md-cash" margin-right></ion-icon> {{h.precio}} </p>-->
-        </ion-card-content>
+        <div class="card-title">{{r.nombre}}</div>
+          <!--<ion-card-title>{{r.nombre}}</ion-card-title>-->
+    
       </ion-card>
     </ion-col>
 
