@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {Discoteca,ServiceCards} from '../../providers/service-cards';
+import {DetailPagePage} from '../detail-page/detail-page';
 
 /*
   Generated class for the BarCards page.
@@ -23,5 +24,13 @@ export class BarCardsPage {
     console.log('ionViewDidLoad BarCardsPage');
    this.discotecas = this.service.disco;
   }
+
+   restClick(index:number){
+    
+
+ this.navCtrl.push(DetailPagePage,{nombre:this.discotecas[index].nombre, imagen:this.discotecas[index].imagen,direc:this.discotecas[index].direccion,hora:this.discotecas[index].horario,likes:this.discotecas[index].likes});
+
+
+   }
 
 }

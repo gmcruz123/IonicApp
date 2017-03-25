@@ -12,11 +12,25 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'detail-page.html'
 })
 export class DetailPagePage {
+  nombre:string;
+  imagen:string;
+  likes:number;
+  direccion:string;
+  horario:string;
+  title:string ="Reservar";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetailPagePage');
+    this.nombre=this.navParams.get("nombre");
+    this.imagen=this.navParams.get("imagen");
+    this.likes = this.navParams.get("likes");
+    this.direccion = this.navParams.get("direc");
+    this.horario = this.navParams.get("hora");
+
+
   }
+
 
 }

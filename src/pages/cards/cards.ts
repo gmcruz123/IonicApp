@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {Restaurante,ServiceCards} from '../../providers/service-cards';
+import {DetailPagePage} from '../../pages/detail-page/detail-page';
 
 /*
   Generated class for the Cards page.
@@ -25,4 +26,13 @@ export class CardsPage {
   }
 
 
+ restClick(index:number){
+    
+
+ this.navCtrl.push(DetailPagePage,{nombre:this.restaurante[index].nombre, imagen:this.restaurante[index].imagen,direc:this.restaurante[index].direccion,hora:this.restaurante[index].horario,likes:this.restaurante[index].likes});
+
+
+
+
+ }
 }

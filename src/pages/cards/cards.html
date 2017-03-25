@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="primary">
-    <button ion-button icon-only menuToggle > <ion-icon name="menu"></ion-icon> </button>
+    <button ion-button icon-only menuToggle> <ion-icon name="menu"></ion-icon> </button>
     <ion-title>Restaurante/bar</ion-title>
   </ion-navbar>
 </ion-header>
@@ -10,19 +10,35 @@
 
   <ion-row>
 
-    <ion-col *ngFor="let r of restaurante" col-12 col-md-6 col-lg-4>
+    <ion-col *ngFor="let r of restaurante ; let i = index" col-12 col-md-6 col-lg-4>
       <ion-card >
-        <img style="width: 100%; height: 240px;" src="{{r.imagen}}">
+        <img style="width: 100%; height: 240px;" src="{{r.imagen}}" (click)="restClick(i)">
         <div class="card-title">{{r.nombre}}</div>
-          <!--<ion-card-title>{{r.nombre}}</ion-card-title>-->
-    
-      </ion-card>
-    </ion-col>
 
+
+<ion-row>
+    <ion-col>
+      <button color="secondary" ion-button icon-left clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button color="secondary" icon-left clear small>
+        <ion-icon name="md-pin"></ion-icon>
+        <div>Mapa</div>
+      </button>
+    </ion-col>
+ 
+  </ion-row>
+      </ion-card>
+
+    </ion-col>
   </ion-row>
 
- <!-- <ion-fab right bottom  (click)="goToAdd()">
+</ion-content>
+
+
+<!-- <ion-fab right bottom  (click)="goToAdd()">
     <button ion-fab icon-only color="secondary"> <ion-icon name="add"></ion-icon> </button>
   </ion-fab>-->
-
-</ion-content>

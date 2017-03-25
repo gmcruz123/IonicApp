@@ -8,6 +8,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {ServiceCards} from '../providers/service-cards';
 import {CardsPage} from '../pages/cards/cards';
 import {BarCardsPage} from '../pages/bar-cards/bar-cards';
+import {DetailPagePage} from '../pages/detail-page/detail-page';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {BarCardsPage} from '../pages/bar-cards/bar-cards';
     HomePage,
     LoginPage,
     CardsPage,
-    BarCardsPage
+    BarCardsPage,
+    DetailPagePage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -26,7 +28,8 @@ import {BarCardsPage} from '../pages/bar-cards/bar-cards';
     HomePage,
     LoginPage,
     CardsPage,
-    BarCardsPage
+    BarCardsPage,
+    DetailPagePage
 
   ],
   providers: [
