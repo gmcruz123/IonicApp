@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
+import {Reservacion,ReservationService} from '../../providers/reservation-service';
+import {ReservationsPage} from '../../pages/reservations/reservations';
 /*
   Generated class for the DetailPage page.
 
@@ -18,8 +19,11 @@ export class DetailPagePage {
   direccion:string;
   horario:string;
 
+  reservacion:Reservacion;
  
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams,public service:ReservationService) {
+    this.reservacion= new Reservacion();
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetailPagePage');
@@ -31,6 +35,13 @@ export class DetailPagePage {
 
 
   }
+
+
+reservar(){
+
+  this.service.reservaciones.push(this.reservacion);
+    this.navCtrl.push(ReservationsPage);
+}
 
 
 }

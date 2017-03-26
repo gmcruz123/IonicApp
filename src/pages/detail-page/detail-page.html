@@ -41,37 +41,40 @@
 
 
  <h1 class="login-title" text-right>Reservaciones</h1>
-
+ 
+<form #form ="ngForm">
           <ion-item color="third">
             <ion-label color="dark">Ocasion</ion-label>
-            <ion-select [(ngModel)]="gaming">
-              <ion-option value="nes">Cumpleaños</ion-option>
-              <ion-option value="n64">Aniversario</ion-option>
-              <ion-option value="ps">Empresarial</ion-option>
-              <ion-option value="genesis">Graduacion</ion-option>
-              <ion-option value="saturn">Otro</ion-option>
+            <ion-select [(ngModel)]="reservacion.ocasion" [ngModelOptions]="{standalone: true}">
+              <ion-option value="cumple">Cumpleaños</ion-option>
+              <ion-option value="aniver">Aniversario</ion-option>
+              <ion-option value="empre">Empresarial</ion-option>
+              <ion-option value="grado">Graduacion</ion-option>
+              <ion-option value="otro">Otro</ion-option>
             </ion-select>
           </ion-item>
 
 
 
           <ion-item color="third">
-            <ion-label color="dark">Date</ion-label>
-            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+            <ion-label color="dark">Hora</ion-label>
+            <ion-datetime name="fecha" displayFormat="MM/DD/YYYY" [(ngModel)]="reservacion.fecha"></ion-datetime>
           </ion-item>
 
           <ion-item color="third">
             <ion-label color="dark">Hora</ion-label>
-            <ion-datetime displayFormat="HH:mm" [(ngModel)]="myDate"></ion-datetime>
+            <ion-datetime  name="hora" displayFormat="HH:mm" [(ngModel)]="reservacion.hora"></ion-datetime>
           </ion-item>
 
           <ion-item color="third">
             <ion-label color="dark">Numero de personas</ion-label>
-            <ion-input  type="number"></ion-input>
+            <ion-input  type="number" name="personas" [(ngModel)]="reservacion.persona"  ></ion-input>
           </ion-item>
+</form>
+          
           <ion-item class="boton">
-            <button color="secondary" ion-button full>Reservar</button>
-          </ion-item>
+            <button color="secondary" (click)="reservar()"  ion-button full>Reservar</button>
+              </ion-item>
         </ion-col>
         <!-- <ion-fab right bottom  (click)="goToAdd()">
     <button ion-fab icon-only color="secondary"> <ion-icon name="add"></ion-icon> </button>

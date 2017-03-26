@@ -9,6 +9,8 @@ import {ServiceCards} from '../providers/service-cards';
 import {CardsPage} from '../pages/cards/cards';
 import {BarCardsPage} from '../pages/bar-cards/bar-cards';
 import {DetailPagePage} from '../pages/detail-page/detail-page';
+import {ReservationService} from '../providers/reservation-service';
+import {ReservationsPage} from '../pages/reservations/reservations';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import {DetailPagePage} from '../pages/detail-page/detail-page';
     LoginPage,
     CardsPage,
     BarCardsPage,
-    DetailPagePage
+    DetailPagePage,
+    ReservationsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -29,13 +32,15 @@ import {DetailPagePage} from '../pages/detail-page/detail-page';
     LoginPage,
     CardsPage,
     BarCardsPage,
-    DetailPagePage
+    DetailPagePage,
+    ReservationsPage
 
   ],
   providers: [
     StatusBar,
     SplashScreen,
     ServiceCards,
+    ReservationService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
