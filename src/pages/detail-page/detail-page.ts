@@ -17,6 +17,8 @@ export class DetailPagePage {
   likes:number;
   direccion:string;
   horario:string;
+
+ 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {

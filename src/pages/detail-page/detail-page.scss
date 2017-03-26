@@ -2,14 +2,32 @@
 page-detail-page {
 .card-title {
     position: absolute;
-    top: 90%;
+    top: 300px;
     font-size: 2.0em;
-    width: 100%;
+   
     font-weight: bold;
     color: #fff;
     padding-left: 3px;
   
   }
+
+
+.boton{
+padding-top: 30px;
+
+}
+
+ .login-title{
+        font-family:'Lobster', cursive;
+        font-size: 2em;
+        color: #FF4081;
+        text-align: center;
+        padding: 0px 0px 10px 0px;
+        
+       
+    }
+
+
 .container{
 
  display: flex;
