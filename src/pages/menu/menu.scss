@@ -1,0 +1,53 @@
+page-menu {
+
+
+.card-title {
+    position: absolute;
+    top: 300px;
+    font-size: 2.0em;
+   
+    font-weight: bold;
+    color: #fff;
+    padding-left: 3px;
+  
+  }
+
+
+.boton{
+padding-top: 30px;
+
+}
+
+ .login-title{
+        font-family:'Lobster', cursive;
+        font-size: 2em;
+        color: #FF4081;
+        text-align: center;
+        padding: 0px 0px 10px 0px;
+        
+       
+    }
+
+
+.container{
+
+ display: flex;
+ flex-direction: row;
+ justify-content: flex-start;
+ flex-wrap: wrap;
+ align-content: flex-start;
+
+ width: 100%;
+ height: 100%;
+}
+
+.card{
+flex: 1;
+}
+
+h1{
+
+    text-align: center;
+}
+
+}

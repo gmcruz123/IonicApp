@@ -23,23 +23,21 @@ disco : Discoteca[];
   Servicio(){
 
 this.restaurante = [
-  {nombre:"Carantanta", direccion:"",likes:0,imagen:"../assets/img/Restaurantes-bares/Carantanta.jpg"},
-/*  {nombre:"Pizarra", direccion:"",likes:0,imagen:""},*/
-  {nombre:"Boogie Boggie", direccion:"",likes:0,imagen:"../assets/img/Restaurantes-bares/boogie.jpg"},
-  {nombre:"Wokin", direccion:"",likes:0,imagen:"../assets/img/Restaurantes-bares/wokin.jpg"},
-  {nombre:"La cosecha", direccion:"",likes:0,imagen:"../assets/img/Restaurantes-bares/cosecha.jpg"},
-  {nombre:"La sala", direccion:"",likes:0,imagen:"../assets/img/Restaurantes-bares/salsa.jpg"},
-  {nombre:"Pacco's Pizza", direccion:"",likes:0,imagen:"../assets/img/Restaurantes-bares/pacos.jpg"},
+  {nombre:"Carantanta",likes:0,imagen:"../assets/img/Restaurantes-bares/Carantanta.jpg",placeid:"ChIJgSF2bnMDMI4Rtd_ptRhXpGE"},
+  {nombre:"Boogie Boggie",likes:0,imagen:"../assets/img/Restaurantes-bares/boogie.jpg",placeid:"ChIJPZ6IyXUDMI4R2nvGbNoKn4w"},
+  {nombre:"Wokin",likes:0,imagen:"../assets/img/Restaurantes-bares/wokin.jpg",placeid:"ChIJj-B7cHQDMI4R6v_JRdyYpAQ"},
+  {nombre:"La cosecha",likes:0,imagen:"../assets/img/Restaurantes-bares/cosecha.jpg",placeid:"ChIJZyLeGRADMI4R6_TYQVNsSFM"},
+  {nombre:"La sala",likes:0,imagen:"../assets/img/Restaurantes-bares/salsa.jpg",placeid:"ChIJ-64jcHMDMI4RZjODotGoXzs"},
+  {nombre:"Pacco's Pizza",likes:0,imagen:"../assets/img/Restaurantes-bares/pacos.jpg",placeid:"ChIJN2HkgA0DMI4Rud6j0iEASng"},
 ];
 
 this.disco=[
-  {nombre:"Corona", direccion:"",likes:0,imagen:"../assets/img/Discotecas/corona.jpg"},
-/*  {nombre:"Pizarra", direccion:"",likes:0,imagen:""},*/
-  {nombre:"Tropical", direccion:"",likes:0,imagen:"../assets/img/Discotecas/tropical.jpg"},
-  {nombre:"Borinquen", direccion:"",likes:0,imagen:"../assets/img/Discotecass/space.jpg"},
-  {nombre:"Sandunga", direccion:"",likes:0,imagen:"../assets/img/Discotecas/Sandunga.jpg"},
-  {nombre:"Vinilo Retro", direccion:"",likes:0,imagen:"../assets/img/Discotecas/vinilo.jpg"},
-  {nombre:"Space", direccion:"",likes:0,imagen:"../assets/img/Discotecas/Borinquen.jpg"},
+  {nombre:"Corona",likes:0,imagen:"../assets/img/Discotecas/corona.jpg", placeid:"ChIJ-cUT8g8DMI4RzkNV_f4ket4"},
+  {nombre:"Tropical",likes:0,imagen:"../assets/img/Discotecas/tropical.jpg",placeid:"ChIJj_8CFW0EMI4RWTLM-ZWeAiE"},
+  {nombre:"Borinquen",likes:0,imagen:"../assets/img/Discotecass/space.jpg",placeid:"ChIJAVYnWRIEMI4RuPGmOWP_n3E"},
+  {nombre:"Sandunga",likes:0,imagen:"../assets/img/Discotecas/Sandunga.jpg",placeid:"ChIJ9zL-7RIEMI4RUjCS4OakvBo"},
+  {nombre:"Retro Grill",likes:0,imagen:"../assets/img/Discotecas/vinilo.jpg",placeid:"ChIJkTNIenQDMI4R8AY3s33bUps"},
+  {nombre:"Babilonia",likes:0,imagen:"../assets/img/Discotecas/Borinquen.jpg",placeid:"ChIJqykDNJwDMI4RBY1mytlznY0"},
 
 ];
 
@@ -53,17 +51,16 @@ this.disco=[
 
 export class Restaurante {
   nombre: string;
-  direccion: string;
   likes: number;
   imagen: string;
-  horario? : string;
+  placeid?:string;
 }
 
 export class Discoteca {
 
-nombre: string;
-  direccion: string;
+  nombre: string;
   likes: number;
   imagen: string;
-  horario? : string;
+  placeid?: string;
+
 }

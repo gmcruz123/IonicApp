@@ -1,0 +1,40 @@
+page-register {
+
+
+    .login-bg{
+        background-image: url('../assets/img/fondo-login.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .login-title{
+        font-family:'Lobster', cursive;
+        font-size: 4em;
+        color: color($colors,"light");
+        text-align: center;
+        
+       
+    }
+
+    .login-main{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .login-inputs{
+
+        flex:1;
+        display: flex;
+        flex-direction: column;
+      padding-top: 50px;
+    }
+
+    .text-input-wp{
+        border-color: white;
+    }
+
+
+}
+

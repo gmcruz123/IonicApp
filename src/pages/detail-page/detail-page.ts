@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {Reservacion,ReservationService} from '../../providers/reservation-service';
 import {ReservationsPage} from '../../pages/reservations/reservations';
+import {MenuPage} from '../../pages/menu/menu';
+import {WorkingHoursPage} from '../../pages/working-hours/working-hours';
+import {GooglePlaces} from '../../providers/google-places';
+import {Mapa} from '../../providers/google-places';
 /*
   Generated class for the DetailPage page.
 
@@ -16,13 +20,17 @@ export class DetailPagePage {
   nombre:string;
   imagen:string;
   likes:number;
-  direccion:string;
-  horario:string;
+  placeid:string;
+
 
   reservacion:Reservacion;
  
-  constructor(public navCtrl: NavController, public navParams: NavParams,public service:ReservationService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public service:ReservationService, public client:GooglePlaces) {
     this.reservacion= new Reservacion();
+    this.placeid = this.navParams.get("placeid");
+
+    this.placeid=this.navParams.get("placeid");
+    client.get(this.placeid).subscribe(mapa=>this.loadMapa(mapa,null));
   }
 
   ionViewDidLoad() {
@@ -30,12 +38,16 @@ export class DetailPagePage {
     this.nombre=this.navParams.get("nombre");
     this.imagen=this.navParams.get("imagen");
     this.likes = this.navParams.get("likes");
-    this.direccion = this.navParams.get("direc");
-    this.horario = this.navParams.get("hora");
-
-
+    this.placeid = this.navParams.get("placeid");
   }
 
+loadMapa(mapa:Mapa, err:string){
+if(err){
+console.log(err);
+return;}
+
+
+}
 
 reservar(){
 
@@ -43,5 +55,8 @@ reservar(){
     this.navCtrl.push(ReservationsPage);
 }
 
+menu(){
+  this.navCtrl.push(MenuPage);
+}
 
 }

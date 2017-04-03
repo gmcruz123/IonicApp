@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import {CardsPage} from '../../pages/cards/cards';
+import {LoginService} from '../../providers/login-service';
 
 /*
   Generated class for the Login page.
@@ -14,15 +15,41 @@ import {CardsPage} from '../../pages/cards/cards';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+user:string;
+pass:string;
+
+  constructor(public navCtrl: NavController
+  ,public navParams: NavParams
+  ,public service: LoginService
+  ,public toastCtrl: ToastController
+  ,public loadingCtrl: LoadingController) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
 
-next(){
 
-  this.navCtrl.push(CardsPage);
-}
+  login() {
+
+    let loading =  this.loadingCtrl.create({content:"Cargando ..."});      
+    loading.present();
+
+    this.service.login(this.user, this.pass).subscribe(res => {
+      loading.dismiss();
+      console.log(JSON.stringify(res));
+      if (res.success) {
+        this.navCtrl.push(CardsPage);
+      } else {
+        this.toastCtrl.create({message:"Usuario o password invalid", duration:3000}).present();
+      }
+
+    }, err =>{
+      console.log(JSON.stringify(err));
+    });
+  }
+
+
+
+
 
 }

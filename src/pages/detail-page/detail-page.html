@@ -27,7 +27,7 @@
       </button>
               </ion-col>
               <ion-col>
-                <button ion-button color="secondary" icon-left clear small>
+                <button ion-button color="secondary" icon-left clear small (click)="menu()">
         <ion-icon name="md-pin"></ion-icon>
         <div>Menu</div>
       </button>
@@ -36,6 +36,8 @@
             </ion-row>
 
           </ion-card>
+
+
         </ion-col>
         <ion-col col-12 col-md-6 col-lg-6>
 
@@ -57,7 +59,7 @@
 
 
           <ion-item color="third">
-            <ion-label color="dark">Hora</ion-label>
+            <ion-label color="dark">Fecha</ion-label>
             <ion-datetime name="fecha" displayFormat="MM/DD/YYYY" [(ngModel)]="reservacion.fecha"></ion-datetime>
           </ion-item>
 
