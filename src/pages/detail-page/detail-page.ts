@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import {Reservacion,ReservationService} from '../../providers/reservation-service';
+import { NavController, NavParams,ToastController, LoadingController } from 'ionic-angular';
+import {ReservationService} from '../../providers/reservation-service';
+import {Reservacion} from '../../models/reservation';
 import {ReservationsPage} from '../../pages/reservations/reservations';
 import {MenuPage} from '../../pages/menu/menu';
 import {WorkingHoursPage} from '../../pages/working-hours/working-hours';
@@ -21,14 +22,20 @@ export class DetailPagePage {
   imagen:string;
   likes:number;
   placeid:string;
+  tipo:number;
 
 
   reservacion:Reservacion;
  
-  constructor(public navCtrl: NavController, public navParams: NavParams,public service:ReservationService, public client:GooglePlaces) {
+  constructor(public navCtrl: NavController
+  , public navParams: NavParams
+  , public service:ReservationService
+  , public client:GooglePlaces
+  , public reserva:ReservationService
+  , public toastCtrl: ToastController
+  , public loadingCtrl: LoadingController) {
+   
     this.reservacion= new Reservacion();
-    this.placeid = this.navParams.get("placeid");
-
     this.placeid=this.navParams.get("placeid");
     client.get(this.placeid).subscribe(mapa=>this.loadMapa(mapa,null));
   }
@@ -38,7 +45,9 @@ export class DetailPagePage {
     this.nombre=this.navParams.get("nombre");
     this.imagen=this.navParams.get("imagen");
     this.likes = this.navParams.get("likes");
-    this.placeid = this.navParams.get("placeid");
+    this.tipo = this.navParams.get("tipo");
+    this.reservacion.lugar = this.nombre;
+    this.reservacion.tipo = this.tipo;
   }
 
 loadMapa(mapa:Mapa, err:string){
@@ -49,11 +58,25 @@ return;}
 
 }
 
-reservar(){
 
-  this.service.reservaciones.push(this.reservacion);
-    this.navCtrl.push(ReservationsPage);
-}
+ reservar() {
+
+    let loading =  this.loadingCtrl.create({content:"Cargando ..."});      
+    loading.present();
+
+    this.reserva.addReserva(this.reservacion).subscribe(res => {
+      loading.dismiss();
+      console.log(JSON.stringify(res));
+      if (res.success) {
+      } else {
+        this.toastCtrl.create({message:"Reserva no ingresada", duration:3000}).present();
+      }
+
+    }, err =>{
+      console.log(JSON.stringify(err));
+    });
+  }
+
 
 menu(){
   this.navCtrl.push(MenuPage);

@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import {URL} from '../app/app.config';
+import {Discoteca,Restaurante} from '../models/restaurantes';
 
 /*
   Generated class for the ServiceCards provider.
@@ -11,17 +14,39 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ServiceCards {
 
-restaurante:Restaurante[];
-disco : Discoteca[];
+restaurante:Restaurante;
+discoteca:Discoteca;
 
-  constructor() {
-    this.Servicio();
-    console.log('Hello ServiceCards Provider');
+  constructor(public http:Http) {}
+
+
+
+  allRes(): Observable<Restaurante[]> {
+    return this.http.get(URL + "/restaurantes").map(response => {
+      return response.json();
+    }).catch(err => {
+      return Observable.throw(err);
+    });
   }
+ 
+
+ allDis(): Observable<Discoteca[]> {
+    return this.http.get(URL + "/discotecas").map(response => {
+      return response.json();
+    }).catch(err => {
+      return Observable.throw(err);
+    });
+  }
+ 
 
 
-  Servicio(){
 
+
+ }
+
+
+
+/*
 this.restaurante = [
   {nombre:"Carantanta",likes:0,imagen:"../assets/img/Restaurantes-bares/Carantanta.jpg",placeid:"ChIJgSF2bnMDMI4Rtd_ptRhXpGE"},
   {nombre:"Boogie Boggie",likes:0,imagen:"../assets/img/Restaurantes-bares/boogie.jpg",placeid:"ChIJPZ6IyXUDMI4R2nvGbNoKn4w"},
@@ -39,28 +64,8 @@ this.disco=[
   {nombre:"Retro Grill",likes:0,imagen:"../assets/img/Discotecas/vinilo.jpg",placeid:"ChIJkTNIenQDMI4R8AY3s33bUps"},
   {nombre:"Babilonia",likes:0,imagen:"../assets/img/Discotecas/Borinquen.jpg",placeid:"ChIJqykDNJwDMI4RBY1mytlznY0"},
 
-];
+];*/
 
 
 
 
-  }
-
-}
-
-
-export class Restaurante {
-  nombre: string;
-  likes: number;
-  imagen: string;
-  placeid?:string;
-}
-
-export class Discoteca {
-
-  nombre: string;
-  likes: number;
-  imagen: string;
-  placeid?: string;
-
-}

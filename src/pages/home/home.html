@@ -1,14 +1,30 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+
+<ion-split-pane when="lg">
+    <ion-menu [content]="content">
+
+        <ion-list no-lines>
+            <ion-list-header>
+                Menu
+
+           </ion-list-header>
+
+            <button ion-item *ngFor="let m of menuOpc; let i =  index" menuClose
+               (click)="selectMenu(i)">
+                <ion-icon [name]="m.icon" margin-right></ion-icon> {{m.label}}
+            </button>
+
+            <ion-list-header>
+                Perfil
+            </ion-list-header>
+            <button ion-item menuClose (click)="logout()">
+                <ion-icon name="md-exit" margin-right></ion-icon> Cerrar Sesion
+            </button>
+        </ion-list>
+
+
+    </ion-menu>
+
+    <ion-nav main #content [root]="mainContent"></ion-nav>
+
+</ion-split-pane>

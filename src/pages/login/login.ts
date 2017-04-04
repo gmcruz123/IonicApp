@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import {CardsPage} from '../../pages/cards/cards';
 import {LoginService} from '../../providers/login-service';
+import {RegisterPage} from '../register/register';
+import {HomePage} from '../../pages/home/home';
 
 /*
   Generated class for the Login page.
@@ -38,7 +40,7 @@ pass:string;
       loading.dismiss();
       console.log(JSON.stringify(res));
       if (res.success) {
-        this.navCtrl.push(CardsPage);
+        this.navCtrl.push(HomePage);
       } else {
         this.toastCtrl.create({message:"Usuario o password invalid", duration:3000}).present();
       }
@@ -48,7 +50,10 @@ pass:string;
     });
   }
 
+regis(){
 
+  this.navCtrl.push(RegisterPage);
+}
 
 
 

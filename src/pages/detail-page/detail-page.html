@@ -20,11 +20,11 @@
 
             <ion-row>
 
-              <ion-col>
+              <ion-col><!--
                 <button ion-button color="secondary" icon-left clear small>
         <ion-icon name="md-pin"></ion-icon>
         <div>Mapa</div>
-      </button>
+      </button>-->
               </ion-col>
               <ion-col>
                 <button ion-button color="secondary" icon-left clear small (click)="menu()">
@@ -48,11 +48,11 @@
           <ion-item color="third">
             <ion-label color="dark">Ocasion</ion-label>
             <ion-select [(ngModel)]="reservacion.ocasion" [ngModelOptions]="{standalone: true}">
-              <ion-option value="cumple">Cumpleaños</ion-option>
-              <ion-option value="aniver">Aniversario</ion-option>
-              <ion-option value="empre">Empresarial</ion-option>
-              <ion-option value="grado">Graduacion</ion-option>
-              <ion-option value="otro">Otro</ion-option>
+              <ion-option value="Cumpleaños">Cumpleaños</ion-option>
+              <ion-option value="Aniversario">Aniversario</ion-option>
+              <ion-option value="Emprendimiento">Empresarial</ion-option>
+              <ion-option value="Graduacion">Graduacion</ion-option>
+              <ion-option value="Otro">Otro</ion-option>
             </ion-select>
           </ion-item>
 

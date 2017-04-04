@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import { User } from '../../models/user';
+import {LoginService} from '../../providers/login-service';
+import { LoginPage} from '../../pages/login/login';
+
 
 /*
   Generated class for the Register page.
@@ -13,10 +17,36 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class RegisterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  user:User;
+
+  constructor(public navCtrl: NavController
+  ,public navParams: NavParams
+  ,public singin : LoginService
+  ,public toastCtrl: ToastController
+  ,public loadingCtrl: LoadingController) {this.user = new User();}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
+
+ singup() {
+
+    let loading =  this.loadingCtrl.create({content:"Cargando ..."});      
+    loading.present();
+
+    this.singin.signin(this.user).subscribe(res => {
+      loading.dismiss();
+      console.log(JSON.stringify(res));
+      if (res.success) {
+        this.navCtrl.push(LoginPage);
+      } else {
+        this.toastCtrl.create({message:"Usuario no registrado", duration:3000}).present();
+      }
+
+    }, err =>{
+      console.log(JSON.stringify(err));
+    });
+  }
+
 
 }

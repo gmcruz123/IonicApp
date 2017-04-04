@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {Restaurante,ServiceCards} from '../../providers/service-cards';
+import {ServiceCards} from '../../providers/service-cards';
+import {Restaurante} from '../../models/restaurantes';
 import {DetailPagePage} from '../../pages/detail-page/detail-page';
 import {MapPage} from '../../pages/map/map';
 
@@ -23,15 +24,16 @@ export class CardsPage {
   }
 
    ionViewDidEnter() {
-    this.restaurante = this.service.restaurante;
+    this.service.allRes().subscribe(data => this.restaurante = data);
   }
 
 
  restClick(index:number){
     
 
- this.navCtrl.push(DetailPagePage,{nombre:this.restaurante[index].nombre, imagen:this.restaurante[index].imagen,likes:this.restaurante[index].likes,placeid:this.restaurante[index].placeid});
- }
+ this.navCtrl.push(DetailPagePage,{tipo:1,nombre:this.restaurante[index].nombre, imagen:this.restaurante[index].imagen,likes:this.restaurante[index].likes,placeid:this.restaurante[index].placeid});
+}
+
 mapa(index:number){
 
   this.navCtrl.push(MapPage,{placeid:this.restaurante[index].placeid});

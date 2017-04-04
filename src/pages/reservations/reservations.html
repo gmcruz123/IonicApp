@@ -6,18 +6,49 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>reservations</ion-title>
+  <ion-navbar color="secondary">
+    <button color="white" ion-button icon-only menuToggle> <ion-icon name="menu"></ion-icon> </button>
+    <ion-title>Reservaciones</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <ion-row>
-    <ion-col *ngFor="let r of reservacion ; let i = index" col-12 col-md-6 col-lg-4>
-    
-        <div class="card-title">{{r.fecha}}</div>
-    </ion-col>
-  </ion-row>
+
+
+<ion-content class="login-bg">
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <div class="login-main" padding>
+    <div class="login-inputs">
+      <ion-row>
+        <ion-col col-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3  *ngFor="let r of reservacion" >
+
+          <ion-item  *ngIf="r.tipo==1"><ion-icon name="md-restaurant" margin-right></ion-icon>{{r.lugar}}
+          </ion-item>
+
+          <ion-item  *ngIf="r.tipo==2"><ion-icon name="ios-people" margin-right></ion-icon>{{r.lugar}}
+          </ion-item>
+
+          <ion-item>Ocasion: {{r.ocasion}}
+          </ion-item>
+
+          <ion-item>Fecha: {{r.fecha}}
+          </ion-item>
+
+          <ion-item>Hora: {{r.hora}}
+          </ion-item>
+
+
+          <ion-item>Numero de personas: {{r.persona}}
+          </ion-item>
+
+
+        </ion-col>
+
+
+
+      </ion-row>
+    </div>
+  </div>
+
 </ion-content>

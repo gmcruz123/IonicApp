@@ -16,6 +16,8 @@ import {MapService} from '../providers/map-service';
 import {GooglePlaces} from '../providers/google-places';
 import {MapPage} from '../pages/map/map';
 import {LoginService}  from '../providers/login-service';
+import {RegisterPage} from '../pages/register/register';
+import {PromoEventPage} from '../pages/promo-event/promo-event';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -29,6 +31,8 @@ import 'rxjs/add/operator/catch';
     DetailPagePage,
     ReservationsPage,
     MenuPage,
+    PromoEventPage,
+    RegisterPage,
     MapPage  ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -43,7 +47,9 @@ import 'rxjs/add/operator/catch';
     DetailPagePage,
     ReservationsPage,
     MenuPage,
-    MapPage
+    MapPage,
+    PromoEventPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,

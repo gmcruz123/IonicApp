@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {Reservacion,ReservationService} from '../../providers/reservation-service';
+import {ReservationService} from '../../providers/reservation-service';
+import {Reservacion} from '../../models/reservation';
 /*
   Generated class for the Reservations page.
 
@@ -19,10 +20,11 @@ export class ReservationsPage {
 
   }
 
-
-   ionViewDidEnter() {
-    this.reservacion = this.Service.reservaciones;
+ ionViewDidEnter() {
+    this.Service.allReserva().subscribe(data => this.reservacion = data);
   }
+
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ReservationsPage');
