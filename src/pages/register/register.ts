@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { User } from '../../models/user';
 import {LoginService} from '../../providers/login-service';
-import { LoginPage} from '../../pages/login/login';
+import { HomePage} from '../../pages/home/home';
+
 
 
 /*
@@ -29,6 +30,45 @@ export class RegisterPage {
     console.log('ionViewDidLoad RegisterPage');
   }
 
+
+
+validar(){
+
+  let loading =  this.loadingCtrl.create({content:"Cargando ..."});      
+  loading.present();
+
+  this.singin.validar(this.user.email).subscribe(res => {
+      loading.dismiss();
+      console.log(JSON.stringify(res));
+      if (res.success) {
+      /*  this.storage.set("user",this.user);*/
+       this.toastCtrl.create({message:"Esta cuenta ya se encuentra en uso", duration:3000}).present();
+
+/*        this.navCtrl.push(HomePage);*/
+      } else {
+      /*  this.toastCtrl.create({message:"Usuario o password invalid", duration:3000}).present();
+      */
+    
+this.singup();  
+/*this.toastCtrl.create({message:"Usuario Registrado", duration:3000}).present();
+*/}
+
+    }, err =>{
+      console.log(JSON.stringify(err));
+    });
+
+
+
+}
+
+
+
+
+
+
+
+
+
  singup() {
 
     let loading =  this.loadingCtrl.create({content:"Cargando ..."});      
@@ -38,7 +78,7 @@ export class RegisterPage {
       loading.dismiss();
       console.log(JSON.stringify(res));
       if (res.success) {
-        this.navCtrl.push(LoginPage);
+        this.navCtrl.push(HomePage);
       } else {
         this.toastCtrl.create({message:"Usuario no registrado", duration:3000}).present();
       }

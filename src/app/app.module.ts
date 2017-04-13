@@ -1,5 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import {GoogleMaps} from '@ionic-native/google-maps';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import {LoginPage} from '../pages/login/login';
@@ -18,6 +19,9 @@ import {MapPage} from '../pages/map/map';
 import {LoginService}  from '../providers/login-service';
 import {RegisterPage} from '../pages/register/register';
 import {PromoEventPage} from '../pages/promo-event/promo-event';
+import {IonicStorageModule} from '@ionic/storage';
+import {LocalNotifications} from '@ionic-native/local-notifications';
+
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -35,7 +39,9 @@ import 'rxjs/add/operator/catch';
     RegisterPage,
     MapPage  ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot() // cuando importo l modulo puedo configurar, enviar parametros.
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -59,6 +65,8 @@ import 'rxjs/add/operator/catch';
     MapService,
     GooglePlaces,
     LoginService,
+    GoogleMaps,
+    LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

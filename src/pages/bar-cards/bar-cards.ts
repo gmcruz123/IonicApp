@@ -37,7 +37,7 @@ export class BarCardsPage {
    restClick(index:number){
     
 
- this.navCtrl.push(DetailPagePage,{tipo:2,nombre:this.discotecas[index].nombre, imagen:this.discotecas[index].imagen,likes:this.discotecas[index].likes,placeid:this.discotecas[index].placeid});
+ this.navCtrl.parent.push(DetailPagePage,{tipo:2,nombre:this.discotecas[index].nombre, imagen:this.discotecas[index].imagen,likes:this.discotecas[index].likes,placeid:this.discotecas[index].placeid});
 
    }
 

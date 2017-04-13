@@ -1,4 +1,5 @@
 export class Reservacion{
+idUsu:string;    
 tipo:number;
 lugar:string;  
 ocasion:string;

@@ -5,6 +5,7 @@ import {LoginPage} from '../../pages/login/login';
 import {CardsPage} from '../../pages/cards/cards';
 import {BarCardsPage} from '../../pages/bar-cards/bar-cards';
 import {ReservationsPage} from '../../pages/reservations/reservations';
+import {Storage} from '@ionic/storage';
 
 @Component({
   selector: 'page-home',
@@ -24,8 +25,10 @@ export class HomePage {
 
   mainContent: any;
 
-  constructor(public navCtrl: NavController/*, public storage:Storage*/) {
+  constructor(public navCtrl: NavController, public storage:Storage) {
     this.mainContent = PromoEventPage;
+
+
 /*    storage.get("user").then( val =>{ console.log(val.user) });*/
   }
 

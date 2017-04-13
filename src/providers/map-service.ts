@@ -15,4 +15,39 @@ declare var Connection;
 @Injectable()
 export class MapService {
 
+ onDevice: boolean;
+ Network: Network;
+ 
+ constructor(public platform: Platform){
+    this.onDevice = this.platform.is('cordova');
+  }
+ 
+  isOnline(): boolean {
+    if(this.onDevice && this.Network.type){
+      return this.Network.type !== Connection.NONE;
+    } else {
+      return navigator.onLine; 
+    }
+  }
+ 
+  isOffline(): boolean {
+    if(this.onDevice && this.Network.type){
+      return this.Network.type === Connection.NONE;
+    } else {
+      return !navigator.onLine;   
+    }
+  }
+
+
+
+
+
+
+
+
+
 }
+
+
+
+

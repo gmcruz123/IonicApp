@@ -6,7 +6,6 @@
   <content src="index.html"/>
   <access origin="*"/>
   <allow-navigation href="http://ionic.local/*"/>
-  <allow-navigation href="https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJgSF2bnMDMI4Rtd_ptRhXpGE&key=AIzaSyD2lEljSFS9_iUzu2F8ULWes7vQv1BgDr0" />
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
@@ -37,4 +36,5 @@
   <plugin name="cordova-plugin-statusbar" spec="2.2.1"/>
   <plugin name="cordova-plugin-device" spec="1.1.4"/>
   <plugin name="cordova-plugin-splashscreen" spec="~4.0.1"/>
+  <plugin name="cordova-plugin-googlemaps" spec="1.2.5"/>
 </widget>

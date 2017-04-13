@@ -30,8 +30,10 @@ return this.http.post(URL + "/reservaciones", reservacion, options).map((respons
 
 
 
-allReserva(): Observable<Reservacion[]> {
-    return this.http.get(URL + "/reservaciones").map(response => {
+allReserva(val): Observable<Reservacion[]> {
+
+
+    return this.http.get(URL + "/reservaciones", val).map(response => {
       return response.json();
     }).catch(err => {
       return Observable.throw(err);
