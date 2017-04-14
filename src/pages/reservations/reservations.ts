@@ -18,17 +18,17 @@ export class ReservationsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public Service:ReservationService,public storage:Storage) {
     this.reservacion=[];
-    storage.get("reservas").then(data=>{
+/*    storage.get("reservas").then(data=>{
     
       console.log("RESERVAS : "+data);
     });
-  }
+*/  }
 
  ionViewDidEnter() {
   
-        this.storage.get("user").then((val)=>{
+        this.storage.get("userID").then((val:number)=>{
         this.Service.allReserva(val).subscribe(data => this.reservacion = data);
-        console.log("Uusuario : "+val);
+       console.log("Uusuario : "+val);
 
   });
 

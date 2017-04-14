@@ -7,15 +7,14 @@
 <ion-header>
 
   <ion-navbar color="secondary">
-    <ion-title>{{direccion}}</ion-title>
+    <h6 id="h6">{{direccion}}</h6>
 
   </ion-navbar>
 </ion-header>
 
-
-
-
-<ion-content>
-  
-  <div id="map"></div>  
-</ion-content>
+<sebm-google-map 
+     [latitude]="latitud" 
+     [longitude]="longitud"
+     [zoom]="15">
+  <sebm-google-map-marker [latitude]="latitud" [longitude]="longitud"></sebm-google-map-marker>
+</sebm-google-map>

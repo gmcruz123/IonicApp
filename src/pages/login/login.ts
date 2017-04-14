@@ -46,8 +46,15 @@ pass:string;
       console.log(JSON.stringify(res));
       if (res.success) {
 
-        this.storage.set("userID", res.user._id);
+    this.storage.set("userID", res.user._id);
        
+    let data = {user:this.user, password:this.pass};
+    this.storage.set("logged",true);
+    this.storage.get("logged").then(val=>console.log("logged :"+val));
+    this.storage.set("userdata", data);
+    this.storage.get("userID").then(val=>console.log("userID"+val));
+        
+        
         this.navCtrl.push(HomePage);
       } else {
         this.toastCtrl.create({message:"Usuario o password invalid", duration:3000}).present();

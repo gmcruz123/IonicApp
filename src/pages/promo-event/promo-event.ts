@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {LocalNotifications} from '@ionic-native/local-notifications';
+import {Storage} from '@ionic/storage';
 
 /*
   Generated class for the PromoEvent page.
@@ -14,9 +14,10 @@ import {LocalNotifications} from '@ionic-native/local-notifications';
 })
 export class PromoEventPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private localNotification:LocalNotifications) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage:Storage) {
   
-  
+  this.storage.get("logged").then(val=>console.log("logged promo:"+val));
+  this.storage.get("userdata").then(val=>console.log("userdatapromo"+val));
   }
 
   ionViewDidLoad() {

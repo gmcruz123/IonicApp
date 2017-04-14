@@ -10,12 +10,20 @@ import {Storage} from '@ionic/storage';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = LoginPage;
+rootPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,storage:Storage) {
 
     storage.ready().then(()=>{
-      
+
+      storage.get("logged").then((val)=>{
+          if (val){
+            this.rootPage = HomePage;
+          }else{
+            this.rootPage = LoginPage;
+          }
+      });
+
     });
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

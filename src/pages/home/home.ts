@@ -51,6 +51,8 @@ export class HomePage {
   logout() {
 /*    this.storage.set("logged", false);*/
     this.navCtrl.setRoot(LoginPage);
+    this.storage.set("logged",false);
+    this.storage.get("logged").then(val=>console.log("logged"+val));
   }
 
 

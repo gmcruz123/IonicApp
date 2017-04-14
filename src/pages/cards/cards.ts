@@ -22,6 +22,10 @@ export class CardsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public service: ServiceCards, public storage:Storage) {
     this.restaurante=[];
+
+
+    this.storage.get("logged").then(val=>console.log("logged :"+val));
+    this.storage.get("userdata").then(vale=>console.log("userstorage:"+vale));
   }
 
    ionViewDidEnter() {
@@ -38,7 +42,7 @@ export class CardsPage {
 
 mapa(index:number){
 
-  this.navCtrl.push(MapPage,{placeid:this.restaurante[index].placeid});
+  this.navCtrl.parent.push(MapPage,{placeid:this.restaurante[index].placeid});
 }
 
 }

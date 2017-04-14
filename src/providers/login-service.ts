@@ -47,8 +47,6 @@ validar(email:string):Observable<{success:boolean , user:any}>{
 
 
 
-
-
 login(username: string, password: string): Observable<{ success: boolean, user: any }> {
     let contentType = new Headers({ "Content-Type": "application/json" });
     let options = new RequestOptions(contentType);

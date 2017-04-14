@@ -6,5 +6,6 @@ ocasion:string;
 fecha:Date;
 hora:Date;
 personas:number;
+imagen:string;
 
 }

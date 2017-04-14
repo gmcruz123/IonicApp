@@ -51,7 +51,9 @@ export class DetailPagePage {
     this.tipo = this.navParams.get("tipo");
     this.reservacion.lugar = this.nombre;
     this.reservacion.tipo = this.tipo;
-  }
+    this.reservacion.imagen = this.imagen;
+
+}
 
   loadMapa(mapa: Mapa, err: string) {
     if (err) {
@@ -67,18 +69,12 @@ export class DetailPagePage {
 
     let loading = this.loadingCtrl.create({ content: "Cargando ..." });
     loading.present();
-
     
-
-    this.data.push(this.reservacion);
-    console.log(this.data);
-    console.log("Longitud del array :"+this.data.length);
-    this.storage.set("reservas", JSON.stringify(this.data));
-
+  
     this.storage.get("userID").then((val)=>{
-        console.log("userID  : "+val);
-
+       
       this.reservacion.idUsu= val;
+     console.log("userID : "+this.reservacion.idUsu);
 
       this.reserva.addReserva(this.reservacion).subscribe(res => {
 

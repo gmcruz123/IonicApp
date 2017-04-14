@@ -44,7 +44,7 @@ export class BarCardsPage {
 
    mapa(index:number){
 
-  this.navCtrl.push(MapPage,{placeid:this.discotecas[index].placeid});
+  this.navCtrl.parent.push(MapPage,{placeid:this.discotecas[index].placeid});
 }
 
 }

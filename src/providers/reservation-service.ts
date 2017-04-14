@@ -13,6 +13,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 
 export class ReservationService {
+reservacion:Reservacion;
+
 
 
 addReserva(reservacion:Reservacion){
@@ -32,8 +34,7 @@ return this.http.post(URL + "/reservaciones", reservacion, options).map((respons
 
 allReserva(val): Observable<Reservacion[]> {
 
-
-    return this.http.get(URL + "/reservaciones", val).map(response => {
+    return this.http.get(URL + "/reservaciones/"+val).map(response => {
       return response.json();
     }).catch(err => {
       return Observable.throw(err);

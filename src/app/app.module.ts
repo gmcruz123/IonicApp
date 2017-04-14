@@ -21,6 +21,7 @@ import {RegisterPage} from '../pages/register/register';
 import {PromoEventPage} from '../pages/promo-event/promo-event';
 import {IonicStorageModule} from '@ionic/storage';
 import {LocalNotifications} from '@ionic-native/local-notifications';
+import {AgmCoreModule} from 'angular2-google-maps/core';
 
 
 import 'rxjs/add/operator/map';
@@ -40,7 +41,11 @@ import 'rxjs/add/operator/catch';
     MapPage  ],
   imports: [
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot() // cuando importo l modulo puedo configurar, enviar parametros.
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyD2lEljSFS9_iUzu2F8ULWes7vQv1BgDr0'
+    }),
+    IonicStorageModule.forRoot()
+      // cuando importo l modulo puedo configurar, enviar parametros.
     
   ],
   bootstrap: [IonicApp],

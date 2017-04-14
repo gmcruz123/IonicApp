@@ -22,12 +22,21 @@
     <div class="login-inputs">
       <ion-row>
         <ion-col col-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3  *ngFor="let r of reservacion" >
+          <ion-item>
+           <ion-thumbnail item-left>
+            <img src="{{r.imagen}}">
+         </ion-thumbnail>
+         <b><h2 id="h2">{{r.lugar}}</h2></b><ion-icon *ngIf="r.tipo==1" name="md-restaurant" margin-left></ion-icon>
+                             <ion-icon *ngIf="r.tipo==2" name="ios-people" margin-left></ion-icon>
 
-          <ion-item  *ngIf="r.tipo==1"><ion-icon name="md-restaurant" margin-right></ion-icon>{{r.lugar}}
+   
+         
+         </ion-item>
+         <!-- <ion-item  *ngIf="r.tipo==1"><ion-icon name="md-restaurant" margin-right></ion-icon>{{r.lugar}}
           </ion-item>
 
           <ion-item  *ngIf="r.tipo==2"><ion-icon name="ios-people" margin-right></ion-icon>{{r.lugar}}
-          </ion-item>
+          </ion-item>-->
 
           <ion-item>Ocasion: {{r.ocasion}}
           </ion-item>
@@ -41,7 +50,6 @@
 
           <ion-item>Numero de personas: {{r.persona}}
           </ion-item>
-
 
         </ion-col>
 
