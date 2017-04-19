@@ -27,11 +27,16 @@ export class ReservationsPage {
  ionViewDidEnter() {
   
         this.storage.get("userID").then((val:number)=>{
-        this.Service.allReserva(val).subscribe(data => this.reservacion = data);
+/*        this.Service.allReserva(val).subscribe(data => this.reservacion = data);*/
        console.log("Uusuario : "+val);
 
-  });
 
+this.storage.get("reservas").then((val:Reservacion[])=>{
+console.log(val);
+this.reservacion=val;
+});
+
+  });
 
 
   }

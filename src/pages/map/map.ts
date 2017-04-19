@@ -3,14 +3,6 @@ import { NavController, NavParams, Platform } from 'ionic-angular';
 import { GooglePlaces } from '../../providers/google-places';
 import { Mapa } from '../../providers/google-places';
 
-/*
-
-GoogleMap, GoogleMapsEvent, GoogleMapsLatLng
-  Generated class for the Map page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-map',
   templateUrl: 'map.html'
@@ -38,10 +30,7 @@ export class MapPage {
     client.get(this.placeid).subscribe(mapa => this.loadMapa(mapa, null));
   
   }
-
-
-
-
+  
 /*servicio de google places*/
 
   loadMapa(mapa: Mapa, err: string) {

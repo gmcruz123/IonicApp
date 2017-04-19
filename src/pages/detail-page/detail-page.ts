@@ -26,7 +26,7 @@ export class DetailPagePage {
   placeid: string;
   tipo: number;
   reservacion: Reservacion;
-  data=[];
+
   constructor(public navCtrl: NavController
     , public navParams: NavParams
     , public service: ReservationService
@@ -52,6 +52,9 @@ export class DetailPagePage {
     this.reservacion.lugar = this.nombre;
     this.reservacion.tipo = this.tipo;
     this.reservacion.imagen = this.imagen;
+    this.storage.get("reservas").then((val)=>{
+console.log(val);
+});
 
 }
 
@@ -75,13 +78,27 @@ export class DetailPagePage {
        
       this.reservacion.idUsu= val;
      console.log("userID : "+this.reservacion.idUsu);
+    this.storage.get("reservas").then((val:Reservacion[])=>{
+
+      val.push(this.reservacion);
+      this.storage.set("reservas",val);
+
+    });
+  
+
+
 
       this.reserva.addReserva(this.reservacion).subscribe(res => {
 
       loading.dismiss();
       console.log(JSON.stringify(res));
       if (res.success) {
-      } else {
+        
+
+
+
+
+ } else {
         this.toastCtrl.create({ message: "Reserva no ingresada", duration: 3000 }).present();
       }
 

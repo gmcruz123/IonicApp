@@ -18,10 +18,32 @@ import {GooglePlaces} from '../providers/google-places';
 import {MapPage} from '../pages/map/map';
 import {LoginService}  from '../providers/login-service';
 import {RegisterPage} from '../pages/register/register';
-import {PromoEventPage} from '../pages/promo-event/promo-event';
 import {IonicStorageModule} from '@ionic/storage';
 import {LocalNotifications} from '@ionic-native/local-notifications';
 import {AgmCoreModule} from 'angular2-google-maps/core';
+import {EventsPage} from '../pages/events/events';
+import {PromoPage} from '../pages/promo/promo';
+import {EvenpromoDetailPage} from '../pages/evenpromo-detail/evenpromo-detail';
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': 'APP_ID',
+  },
+  'push': {
+    'sender_id': 'SENDER_ID',
+    'pluginConfig': {
+      'ios': {
+        'badge': true,
+        'sound': true
+      },
+      'android': {
+        'iconColor': '#343434'
+      }
+    }
+  }
+};
+
 
 
 import 'rxjs/add/operator/map';
@@ -36,11 +58,14 @@ import 'rxjs/add/operator/catch';
     DetailPagePage,
     ReservationsPage,
     MenuPage,
-    PromoEventPage,
     RegisterPage,
+    PromoPage,
+    EvenpromoDetailPage,
+    EventsPage,
     MapPage  ],
   imports: [
     IonicModule.forRoot(MyApp),
+    CloudModule.forRoot(cloudSettings),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD2lEljSFS9_iUzu2F8ULWes7vQv1BgDr0'
     }),
@@ -59,8 +84,10 @@ import 'rxjs/add/operator/catch';
     ReservationsPage,
     MenuPage,
     MapPage,
-    PromoEventPage,
-    RegisterPage
+    RegisterPage,
+    PromoPage,
+    EventsPage,
+    EvenpromoDetailPage
   ],
   providers: [
     StatusBar,

@@ -47,9 +47,6 @@ allReserva(val): Observable<Reservacion[]> {
 
 
 
-
-
-
   constructor(public http: Http) {
     console.log('Hello ReservationService Provider');
   }

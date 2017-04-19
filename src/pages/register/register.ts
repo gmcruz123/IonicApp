@@ -32,35 +32,6 @@ export class RegisterPage {
 
 
 
-validar(){
-
-  let loading =  this.loadingCtrl.create({content:"Cargando ..."});      
-  loading.present();
-
-  this.singin.validar(this.user.email).subscribe(res => {
-      loading.dismiss();
-      console.log(JSON.stringify(res));
-      if (res.success) {
-      /*  this.storage.set("user",this.user);*/
-       this.toastCtrl.create({message:"Esta cuenta ya se encuentra en uso", duration:3000}).present();
-
-/*        this.navCtrl.push(HomePage);*/
-      } else {
-      /*  this.toastCtrl.create({message:"Usuario o password invalid", duration:3000}).present();
-      */
-    
-this.singup();  
-/*this.toastCtrl.create({message:"Usuario Registrado", duration:3000}).present();
-*/}
-
-    }, err =>{
-      console.log(JSON.stringify(err));
-    });
-
-
-
-}
-
 
 
 

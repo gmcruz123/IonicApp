@@ -9,12 +9,12 @@
   </ion-header>
 
 
-  <ion-content>
+  <ion-content class="bg">
     <div class="cards">
 
       <ion-row justify-content-center>
         <ion-col col-12 col-md-6 col-lg-6>
-          <ion-card>
+          <ion-card  class="info">
             <img style="width: 100%; height: 320px;" src="{{imagen}}">
             <div class="card-title">{{nombre}}</div>
 
@@ -27,8 +27,8 @@
       </button>-->
               </ion-col>
               <ion-col>
-                <button ion-button color="secondary" icon-left clear small (click)="menu()">
-        <ion-icon name="md-pin"></ion-icon>
+                <button ion-button color="light" icon-left clear small (click)="menu()">
+        <ion-icon color="light" name="md-pin"></ion-icon>
         <div>Menu</div>
       </button>
               </ion-col>
@@ -45,8 +45,8 @@
  <h1 class="login-title" text-right>Reservaciones</h1>
  
 <form #form ="ngForm">
-          <ion-item color="third">
-            <ion-label color="dark">Ocasion</ion-label>
+          <ion-item class="info">
+            <ion-label color="light">Ocasion</ion-label>
             <ion-select [(ngModel)]="reservacion.ocasion" required [ngModelOptions]="{standalone: true}">
               <ion-option value="Cumpleaños">Cumpleaños</ion-option>
               <ion-option value="Aniversario">Aniversario</ion-option>
@@ -58,24 +58,24 @@
 
 
 
-          <ion-item color="third">
-            <ion-label color="dark">Fecha</ion-label>
+          <ion-item class="info">
+            <ion-label color="light">Fecha</ion-label>
             <ion-datetime name="fecha" required displayFormat="MM/DD/YYYY" [(ngModel)]="reservacion.fecha"></ion-datetime>
           </ion-item>
 
-          <ion-item color="third">
-            <ion-label color="dark">Hora</ion-label>
+          <ion-item class="info">
+            <ion-label color="light">Hora</ion-label>
             <ion-datetime  name="hora" required displayFormat="HH:mm" [(ngModel)]="reservacion.hora"></ion-datetime>
           </ion-item>
 
-          <ion-item color="third">
-            <ion-label color="dark">Numero de personas</ion-label>
+          <ion-item class="info" >
+            <ion-label color="light">Numero de personas</ion-label>
             <ion-input  type="number" min="1" required name="personas" [(ngModel)]="reservacion.persona"  ></ion-input>
           </ion-item>
 </form>
           
           <ion-item class="boton">
-            <button color="secondary" (click)="reservar()" [disabled]="!form.valid"  ion-button full>Reservar</button>
+            <button color="light" (click)="reservar()" [disabled]="!form.valid"  ion-button full>Reservar</button>
               </ion-item>
         </ion-col>
         <!-- <ion-fab right bottom  (click)="goToAdd()">

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {PromoEventPage} from '../../pages/promo-event/promo-event';
+import {EventsPage} from '../../pages/events/events';
 import {LoginPage} from '../../pages/login/login';
 import {CardsPage} from '../../pages/cards/cards';
 import {BarCardsPage} from '../../pages/bar-cards/bar-cards';
 import {ReservationsPage} from '../../pages/reservations/reservations';
 import {Storage} from '@ionic/storage';
+import {PromoPage} from '../../pages/promo/promo';
 
 @Component({
   selector: 'page-home',
@@ -20,13 +21,13 @@ export class HomePage {
     { label: 'Restaurantes / bar', icon: 'md-beer' },
     { label: 'Discotecas', icon: 'md-pizza' },
     { label: 'Reservaciones', icon: 'md-restaurant' },
-
+    { label: 'Promociones', icon: 'md-cash'},
   ]
 
   mainContent: any;
 
   constructor(public navCtrl: NavController, public storage:Storage) {
-    this.mainContent = PromoEventPage;
+    this.mainContent = EventsPage;
 
 
 /*    storage.get("user").then( val =>{ console.log(val.user) });*/
@@ -34,7 +35,7 @@ export class HomePage {
 
   selectMenu(index: number) {
     switch(index){
-      case 0 : this.mainContent = PromoEventPage;
+      case 0 : this.mainContent = EventsPage;
       break;
       case 1 : this.mainContent = CardsPage;
       break;
@@ -42,7 +43,11 @@ export class HomePage {
       break;
       case 3 : this.mainContent = ReservationsPage;
       break;
-      default: this.mainContent = LoginPage;
+      case 4: this.mainContent = PromoPage;
+      break;
+
+      default : this.mainContent= LoginPage;
+      break;
     }
 
 

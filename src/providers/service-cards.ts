@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import {URL} from '../app/app.config';
 import {Discoteca,Restaurante} from '../models/restaurantes';
+import {Eventos} from '../models/eventos';
+import {Promocion} from '../models/promo';
 
 /*
   Generated class for the ServiceCards provider.
@@ -14,9 +16,10 @@ import {Discoteca,Restaurante} from '../models/restaurantes';
 @Injectable()
 export class ServiceCards {
 
-restaurante:Restaurante;
+/*restaurante:Restaurante;
 discoteca:Discoteca;
-
+eventos:Eventos;
+promocion:Promocion;*/
   constructor(public http:Http) {}
 
 
@@ -38,12 +41,41 @@ discoteca:Discoteca;
     });
   }
  
+allEvents():Observable<Eventos[]>{
+    return this.http.get(URL + "/eventos").map(response=>{
+      return response.json();
+    }).catch(err=>{
+        return Observable.throw(err);
+      });
+
+    }
+
+
+
+allPromo():Observable<Promocion[]>{
+    return this.http.get(URL + "/promociones").map(response=>{
+      return response.json();
+    }).catch(err=>{
+        return Observable.throw(err);
+      });
+}
+    
+
+Put(nom,body) {
+  let contentType= new Headers({"Content-Type":"application/json"});
+let options = new RequestOptions(contentType);
+    return this.http.put(URL + "/restaurantes/"+nom ,body).map(response => {
+      return response.json();
+    }).catch(err => {
+      return Observable.throw(err);
+    });
+  }
 
 
 
 
- }
 
+}
 
 
 /*
